@@ -109,12 +109,61 @@ const fighters = {
     },
   ],
 };
-console.log(getNextOpponent(fighters));
-const listAllKeys = () => {};
+// console.log(getNextOpponent(fighters));
 
-const listAllValues = () => {};
+const listAllKeys = (bottle) => {
+  return Object.keys(bottle);
+};
 
-const convertToMatrix = () => {};
+const bottle1 = {
+  name: "Hydro",
+  color: "Blue",
+  brand: "flask",
+  weight: "5LB",
+};
+
+// console.log(listAllKeys(bottle1));
+const listAllValues = (table) => {
+  return Object.values(table);
+};
+
+const convertToMatrix = (arr) => {
+  // Check if  array is empty
+  if (arr.length === 0) {
+    return [];
+  }
+
+  // Extract the keys from the first object in the array
+  const keys = Object.keys(arr[0]);
+
+  // Initialize the matrix with the keys as the first row
+  const matrix = [keys];
+
+  // Iterate through the array of objects
+  arr.forEach((obj) => {
+    // Extract the values from the object and add them as a new row in the matrix
+    const values = keys.map((key) => obj[key]);
+    matrix.push(values);
+  });
+
+  return matrix;
+};
+
+// // Example
+// const users = [
+//   {
+//     name: "Bob",
+//     age: 30,
+//     bio: "What a legend",
+//   },
+//   {
+//     name: "Neon",
+//     age: 30,
+//     bio: "Kind of mean if we're being honest",
+//   },
+// ];
+
+//console.log(convertToMatrix(users));
 
 module.exports = {
   coolGreeting,
